@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/postgres": "^1.7.0",
     "@sap/cds": "^7",
     "express": "^4"
   },
@@ -18,9 +19,9 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "db.sqlite"
+        "impl": "@cap-js/postgres",
+        "pool": {
+          "max": 20
         }
       }
     }
