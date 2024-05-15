@@ -1,5 +1,5 @@
 _schema-version: '3.1'
-ID: cloudkitchen
+ID: CloudKitchen
 version: 1.0.0
 description: "A simple CAP project."
 parameters:
@@ -11,13 +11,11 @@ build-parameters:
         - npm ci
         - npx cds build --production
 modules:
-  - name: cloudkitchen-srv
+  - name: CloudKitchen-srv
     type: nodejs
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
-      readiness-health-check-type: http
-      readiness-health-check-http-endpoint: /health
     build-parameters:
       builder: npm
     provides:
@@ -26,9 +24,27 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: postgres
-      - name: cloudkitchen-auth
+      - name: CloudKitchen-auth
 
-  - name: cloudkitchen-postgres-deployer
+  - name: CloudKitchen
+    type: approuter.nodejs
+    path: app/
+    parameters:
+      buildpack: nodejs_buildpack
+      stack: cflinuxfs4
+      keep-existing-routes: true
+      disk-quota: 2048M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: CloudKitchen-auth
+      
+  - name: CloudKitchen-postgres-deployer
     type: nodejs
     path: gen/pg
     parameters:
@@ -48,12 +64,12 @@ resources:
       service: postgresql-db
       service-plan: trial
       
-  - name: cloudkitchen-auth
+  - name: CloudKitchen-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: cloudkitchen-${org}-${space}
+        xsappname: CloudKitchen-${org}-${space}
         tenant-mode: dedicated
