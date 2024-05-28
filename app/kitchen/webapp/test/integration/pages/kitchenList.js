@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'cloudkitchen',
+            appId: 'com.sumanth.nnrg.kitchen',
             componentId: 'kitchenList',
             contextPath: '/kitchen'
         },

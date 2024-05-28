@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "cloudkitchen",
+    "id": "com.sumanth.nnrg.kitchen",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.13.0",
-      "toolsId": "f819e732-548b-4624-86c0-a8de1be98436"
+      "toolsId": "a823fe0a-8f89-4c33-947a-e3232f48582e"
     },
     "dataSources": {
       "mainService": {
@@ -61,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "cloudkitchen.i18n.i18n"
+          "bundleName": "com.sumanth.nnrg.kitchen.i18n.i18n"
         }
       },
       "": {

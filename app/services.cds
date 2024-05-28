@@ -1,2 +1,2 @@
 
-using from './cloudkitchen/annotations';
+using from './kitchen/annotations';
