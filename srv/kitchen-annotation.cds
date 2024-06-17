@@ -1,6 +1,8 @@
 namespace com.sumanth.nnrg;
+using {nnrg.kitchen as kitchen} from './cloudkitchen';
 
-annotate com.sumanth.nnrg.kitchen with @(
+
+annotate kitchen with @(
     UI.LineItem: [
         {
             $Type : 'UI.DataField',
@@ -35,7 +37,7 @@ annotate com.sumanth.nnrg.kitchen with @(
 );
 
 
-annotate com.sumanth.nnrg.kitchen with @(       
+annotate kitchen with @(       
     UI.FieldGroup #kitchenInformation : {
         $Type : 'UI.FieldGroupType',
         Data : [
