@@ -12,8 +12,16 @@ service nnrg @(requires: 'authenticated-user') {
     Product,
     ProductType,
     BaseUnit,
-    ProductGroup
+    ProductGroup,
+    to_Description,
+    null as ProductDescription: String(80)
   }
+
+  // entity ProductDescription as projection on productapi.A_ProductDescription{
+  //   Product,
+  //   Language,
+  //   ProductDescription
+  // }
 
 }
 
