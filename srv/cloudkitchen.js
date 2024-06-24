@@ -41,4 +41,12 @@ module.exports = cds.service.impl(async function(){
         await cds.run(insqry);        
     } )
 
+    this.before('UPDATE','ProductLocal', async req => {
+        const {Products, ProductLocal} = this.entities;
+        console.log(req.data);
+        console.log("Fire Update");
+        updqry = UPDATE(Products).data(req.data).where ({Product: req.data.Product});
+        await productapi.run(updqry);
+    });
+
 })
