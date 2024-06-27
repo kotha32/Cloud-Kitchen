@@ -4,6 +4,7 @@
       "name": "$XSAPPNAME.CloudKitchenWrite",
       "description": "CloudKitchen Create/Update"
     },
+    //hello
     {
       "name": "$XSAPPNAME.CloudKitchenRead",
       "description": "CloudKitchenRead"
