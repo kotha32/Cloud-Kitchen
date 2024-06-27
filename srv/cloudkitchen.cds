@@ -8,7 +8,7 @@ service nnrg @(requires: 'authenticated-user') {
     { grant: ['DELETE'], to: 'CloudKitchenDelete'},
   ]) as projection on db.kitchen
 
-   entity Products as projection on productapi.A_Product{
+  entity Products as projection on productapi.A_Product{
     Product,
     ProductType,
     BaseUnit,
